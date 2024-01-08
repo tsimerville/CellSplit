@@ -40,28 +40,42 @@ public class SingleCellSpawner : MonoBehaviour
         List<int> mitosisReadyIndices = new List<int>();
         for (int i = 0; i < scellPrefabs.Count; i++)
         {
-            SingleCellEnergy mitosisReady = scellPrefabs[i].GetComponent<SingleCellEnergy>();
-            bool mitosisTriggerReady = mitosisReady.singleCellMitosisTrigger;
+            GameObject singleCell = scellPrefabs[i];
 
-            if (mitosisTriggerReady)
+            if (singleCell != null)
             {
-                mitosisReadyIndices.Add(i); 
+                SingleCellEnergy mitosisReady = singleCell.GetComponent<SingleCellEnergy>();
+                if (mitosisReady != null && mitosisReady.singleCellMitosisTrigger)
+                {
+                    mitosisReadyIndices.Add(i);
+                }
             }
+    //        SingleCellEnergy mitosisReady = scellPrefabs[i].GetComponent<SingleCellEnergy>();
+    //        bool mitosisTriggerReady = mitosisReady.singleCellMitosisTrigger;
+    //
+    //        if (mitosisTriggerReady)
+    //        {
+    //            mitosisReadyIndices.Add(i); 
+    //        }
         }
         foreach (int index in mitosisReadyIndices)
         {
             GameObject singleCell = scellPrefabs[index];
-            SingleCellEnergy mitosisReady = singleCell.GetComponent<SingleCellEnergy>();
-
-            Vector2 spawnlocation = singleCell.transform.position;
-            GameObject newSingleCell = Instantiate(singleCellPrefab, new Vector2(spawnlocation.x + UnityEngine.Random.Range(-1f, 1f), spawnlocation.y + UnityEngine.Random.Range(-1f, 1f)), Quaternion.identity);
-            newSingleCell.name = "Single Cell " + singleCellNumber++;
-            scellPrefabs.Add(newSingleCell);
-            newSingleCell.transform.parent = singleCell.transform;
-            mitosisReady.singleCellMitosisTrigger = false; 
-
-
-
+            if (singleCell != null)
+            {
+                SingleCellEnergy mitosisReady = singleCell.GetComponent<SingleCellEnergy>();
+                if(mitosisReady != null)
+                {
+                    Vector2 spawnlocation = singleCell.transform.position;
+                    GameObject newSingleCell = Instantiate(singleCellPrefab, new Vector2(spawnlocation.x + UnityEngine.Random.Range(-1f, 1f), spawnlocation.y + UnityEngine.Random.Range(-1f, 1f)), Quaternion.identity);
+                    newSingleCell.name = "Single Cell " + singleCellNumber++;
+                    scellPrefabs.Add(newSingleCell);
+                    newSingleCell.transform.parent = singleCell.transform;
+                    mitosisReady.singleCellMitosisTrigger = false;
+                    //newSingleCell.GetComponent<NeuralNetwork>.layers = singleCell.GetComponent<NeuralNetwork>.CopyLayers();
+                }
+            }
+ 
         }
     }
 

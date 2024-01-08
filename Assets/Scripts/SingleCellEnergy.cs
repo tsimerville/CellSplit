@@ -27,7 +27,7 @@ public class SingleCellEnergy : MonoBehaviour
             {
                 singleCellMitosisTrigger = true; 
                 timer = 0f;
-                Debug.Log("Mitosis Ready"); 
+                //Debug.Log("Mitosis Ready"); 
             }
         }
         else
@@ -43,7 +43,7 @@ public class SingleCellEnergy : MonoBehaviour
         {
             cellEnergyLevel -= 1; 
             singleCellEnergyLevel = false;
-            Debug.Log("Singcell Energy is " + cellEnergyLevel);
+            //Debug.Log("Singcell Energy is " + cellEnergyLevel);
         }
         if (cellEnergyLevel == 0) 
         {

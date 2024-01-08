@@ -215,6 +215,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   singleCellEnergyLevel: 0
+  cellEnergyLevel: 25
+  singleCellMitosisTrigger: 0
 --- !u!114 &5117449214212075724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,3 +234,5 @@ MonoBehaviour:
   singleCellLayer:
     serializedVersion: 2
     m_Bits: 8
+  myCollider: {fileID: 6743134628597367522}
+  viewDistance: 20
