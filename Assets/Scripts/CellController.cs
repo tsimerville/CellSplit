@@ -48,7 +48,7 @@ public class CellController : MonoBehaviour
             cellPrefabs.Add(newPlants);
             newPlants.transform.parent = transform;  
         }
-        if (cellPrefabsLength <= 300)
+        if (cellPrefabsLength <= 125)
         {
             mistosisSpawn();
         }

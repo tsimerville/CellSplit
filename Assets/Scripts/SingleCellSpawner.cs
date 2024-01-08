@@ -7,13 +7,14 @@ public class SingleCellSpawner : MonoBehaviour
     public GameObject singleCellPrefab;
     private GameObject[] singleCellPrefabs;
     [SerializeField] private List<GameObject> scellPrefabs = new List<GameObject>();
-    private int singleCellNumber = 0; 
+    private int singleCellNumber = 0;
+    public NeuralNetwork nn; 
 
     private void FixedUpdate()
     {
         singleCellPrefabs = GameObject.FindGameObjectsWithTag("SingleCell");
 
-        if(singleCellPrefabs.Length < 1)
+        if(singleCellPrefabs.Length < 5)
         {
             SpawnSingleCell();
         }
@@ -72,7 +73,7 @@ public class SingleCellSpawner : MonoBehaviour
                     scellPrefabs.Add(newSingleCell);
                     newSingleCell.transform.parent = singleCell.transform;
                     mitosisReady.singleCellMitosisTrigger = false;
-                    //newSingleCell.GetComponent<NeuralNetwork>.layers = singleCell.GetComponent<NeuralNetwork>.CopyLayers();
+                    newSingleCell.GetComponent<NeuralNetwork>().layers = singleCell.GetComponent<NeuralNetwork>().CopyLayers();
                 }
             }
  

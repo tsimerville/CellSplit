@@ -46,6 +46,8 @@ GameObject:
   - component: {fileID: 1935689257944653889}
   - component: {fileID: -5766483987144623425}
   - component: {fileID: 5117449214212075724}
+  - component: {fileID: 6551492343058337570}
+  - component: {fileID: 6354874039420038253}
   m_Layer: 0
   m_Name: SingleCell
   m_TagString: SingleCell
@@ -61,14 +63,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6350186520640254246}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.10325838, y: 0.72756195, z: 0.095301524, w: 0.6714975}
   m_LocalPosition: {x: 19.541298, y: 6.719416, z: -0.20111775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4516105215192435460}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -16.102, y: 94.777, z: -1.328}
 --- !u!58 &6743134628597367522
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -231,8 +233,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   cellCheck: {fileID: 4516105215192435460}
-  singleCellLayer:
+  plantCellLayer:
     serializedVersion: 2
     m_Bits: 8
   myCollider: {fileID: 6743134628597367522}
   viewDistance: 20
+--- !u!114 &6551492343058337570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6350186520640254246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27beb4af0aa0aec43954a8e65c876a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mutateMutations: 1
+  mutationAmount: 0.8
+  mutationChance: 0.2
+  distances:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  viewDistance: 20
+  LR: 0
+  FB: 0
+  Rot: 0
+  nn: {fileID: 0}
+  scm: {fileID: 0}
+  sce: {fileID: 0}
+--- !u!114 &6354874039420038253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6350186520640254246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8de69beee2637c4fac036ee7c9e8016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
